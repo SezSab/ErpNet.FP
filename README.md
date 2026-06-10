@@ -1,10 +1,10 @@
-<img src="https://github.com/erpnet/ErpNet.FP/raw/master/ErpNet.FP.Server/ErpNet.FP.thumb.png" align="right"/>
+<img src="ErpNet.FP.Server/ErpNet.FP.thumb.png" align="right"/>
 
-# ErpNet.FP
+# nuxFP
 
-ErpNet.FP is a light-weight multi-platform Http server facilitating printing to fiscal printers through simple JSON Api. The library provides methods to detect, get status, print receipts, reports and other documents to fiscal printers.
+nuxFP is a light-weight multi-platform Http server facilitating printing to fiscal printers through simple JSON Api. The library provides methods to detect, get status, print receipts, reports and other documents to fiscal printers.
 
-The ErpNet.FP http server provides a REST API with JSON input/output, which prints documents transactionally and returns result status.
+The nuxFP HTTP server provides a REST API with JSON input/output, which prints documents transactionally and returns result status.
 
 The http server receives input through the REST API and uses different transports to communicate with the fiscal printers. The transports include:
 * COM serial connection
@@ -14,12 +14,12 @@ The http server receives input through the REST API and uses different transport
 
 ### Shortcut to [**Download**](#download)
 
- 
+
 
 # The Net.FP Protocol
-All communication with the ErpNet.FP print server is based on the Net.FP (Net Fiscal Protocol).
+All communication with the nuxFP print server is based on the Net.FP (Net Fiscal Protocol).
 ## Requests
-The print server accepts documents for printing, using JSON based protocol. 
+The print server accepts documents for printing, using JSON based protocol.
 For example, this would print the specified receipt to dt517985, which is the printerId of one of the detected printers, listed with GET /printers (see below for printerId explanation):
 
 POST /printers/dt517985/receipt
@@ -68,15 +68,15 @@ If there was error, "ok" would be "false".
 
 If "ok"="false", it is guaranteed, that at least one message of type "error" would be present.
 
-The error and warning messages have standardized codes across all manufacturers. The standard error and warning codes are listed in the 
+The error and warning messages have standardized codes across all manufacturers. The standard error and warning codes are listed in the
 [Error and Warning Codes](ErrorCodes.md) file.
 
-The standard error codes are a subset of all manufacturer codes and flags. 
-In some cases, the specific manufacturer codes, flags and messages could contain more detailed information. 
-The manufacturer code, when available, is contained in the "originalCode" field. 
-The problem with using the manufacturer codes is that they are different for each manufacturer. 
-For some manufacturers they are not even present (there might be just some status flags). 
-The manufacturer codes can even change between revisions of printers of the same manufacturer. 
+The standard error codes are a subset of all manufacturer codes and flags.
+In some cases, the specific manufacturer codes, flags and messages could contain more detailed information.
+The manufacturer code, when available, is contained in the "originalCode" field.
+The problem with using the manufacturer codes is that they are different for each manufacturer.
+For some manufacturers they are not even present (there might be just some status flags).
+The manufacturer codes can even change between revisions of printers of the same manufacturer.
 The standardized error and warning codes are guaranteed to be the same across all manufacturers and printer versions.
 Messages with "type": "info", have no codes, because they cannot be standardized.
 
@@ -147,74 +147,74 @@ Messages with "type": "info", have no codes, because they cannot be standardized
 ```
 
 # Download
-Eager to try? 
-You can list and [download the binaries for ErpNet.FP.Server]:
+Eager to try?
+You can list and [download the binaries for nuxFP.Server]:
 
 ### Windows 32/64 Service Installer (.MSI) ** New **
-- [Prerequisites for ErpNet.FP on Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites).
-- There is no need for .Net installation. 
-- Everything that is needed is included in the MSI installer. 
+- [Prerequisites for nuxFP on Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites).
+- There is no need for .Net installation.
+- Everything that is needed is included in the MSI installer.
 
 Download: [Installer for Windows 32/64]
 
-The Windows installer setups or updates the ErpNet.FP Fiscal Print Server on a Windows 32 or 64 bit OS. 
-The installer unpacks and installs a Windows service, called "ErpNet.FP". 
+The Windows installer setups or updates the nuxFP Fiscal Print Server on a Windows 32 or 64 bit OS.
+The installer unpacks and installs a Windows service, called "nuxFP".
 There is no UI, but when the service is running in the default configuration, you can browse the Admin page at http://localhost:8001.
 
 ### Windows 32/64 bit, folder install
-- [Prerequisites for ErpNet.FP on Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites).
-- There is no need for .Net installation. 
-- Everything that is needed is included in the Zip files below. 
+- [Prerequisites for nuxFP on Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites).
+- There is no need for .Net installation.
+- Everything that is needed is included in the Zip files below.
 
 Download 32 bit (x86): [win-x86.zip - Windows 32 bit]
 
 Download 64 bit (x64): [win-x64.zip - Windows 64 bit]
 
-Download and unzip the file in a folder. 
-Inside the folder you will find executable file: ErpNet.FP.Server.exe. 
-To start the printing service, run ErpNet.FP.Server.exe, or register the executable as a Windows service.
+Download and unzip the file in a folder.
+Inside the folder you will find executable file: nuxFP.Server.exe.
+To start the printing service, run nuxFP.Server.exe, or register the executable as a Windows service.
 When the service is running in the default configuration, you can browse the Admin page at http://localhost:8001.
 
 ### OSX 10.10 and up, 64 bit folder install
 
-Download 64 bit - [osx-x64.zip - macOS] - You can download and unzip the server in a folder. 
-- [Prerequisites for ErpNet.FP on macOS](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites).
+Download 64 bit - [osx-x64.zip - macOS] - You can download and unzip the server in a folder.
+- [Prerequisites for nuxFP on macOS](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites).
 
 Inside the unzipped folder, run it from console/terminal with:
 ```bash
-./ErpNet.FP.Server
+./nuxFP.Server
 ```
 When the service is running in the default configuration, you can browse the Admin page at http://localhost:8001.
 
 ### Linux 64 bit, folder install
 
-Download 64 bit - [linux-x64.zip - Linux x64] - You can download and unzip the server. 
-- [Prerequisites for ErpNet.FP on Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites).
+Download 64 bit - [linux-x64.zip - Linux x64] - You can download and unzip the server.
+- [Prerequisites for nuxFP on Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites).
 
-Because of the serial ports default permissions, run it from sudoer, with sudo, or in the root user context. 
+Because of the serial ports default permissions, run it from sudoer, with sudo, or in the root user context.
 For convenience, create a systemd service config file, get more info how to do it here [Systemd: Service File Examples].
 The other way is to run it from non-root user, but that user should have permissions to read and write to serial ports.
 When the service is running in the default configuration, you can browse the Admin page at http://localhost:8001.
 
 ### Linux-Arm 64 bit, folder install
 
-Download 64 bit - [linux-arm.zip - Linux Arm] - You can download and unzip the server. 
-- [Prerequisites for ErpNet.FP on Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites).
+Download 64 bit - [linux-arm.zip - Linux Arm] - You can download and unzip the server.
+- [Prerequisites for nuxFP on Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites).
 
 This version is compatible with Raspberry PI OS, Raspbian, and 64 bit Arm devices like Raspberry PI 3B+, Raspberry PI 2 and up.
-Because of the serial ports default permissions, run it from sudoer, with sudo, or in the root user context. 
+Because of the serial ports default permissions, run it from sudoer, with sudo, or in the root user context.
 For convenience, create a systemd service config file, get more info how to do it here [Systemd - Raspberry Pi Documentation].
 The other way is to run it from non-root user, but that user should have permissions to read and write to serial ports.
 When the service is running in the default configuration, you can browse the Admin page at http://localhost:8001.
 
 Important: The requirement for running ARM CPUs is to support at least the vfpv4d32 floating point feature. This is why we prefer to support only 64 bit CPUs, because they support that feature and more... For reference see: [Issue 17043 at dotnet/coreclr](https://github.com/dotnet/coreclr/issues/17043).
 
-## Debug information 
-For debugging purposes, there is a link to debug.log and it's folder in the Admin page. 
-It contains debug information for every event that occured while using the service. 
+## Debug information
+For debugging purposes, there is a link to debug.log and it's folder in the Admin page.
+It contains debug information for every event that occured while using the service.
 
 ## Server Configuration
-The server configuration options are located in a file, called "appsettings.json". 
+The server configuration options are located in a file, called "appsettings.json".
 For more information, see [Configuration](https://github.com/erpnet/ErpNet.FP/blob/master/Config.md).
 It is recommended that you use the Admin page, or through /service API to edit the settings in this file rather than edit it directly.
 
@@ -265,7 +265,7 @@ The library supports printers from the following manufacturers:
 * Tremol (https://www.tremol.bg)
 * Daisy (https://daisy.bg)
 * Eltrade (https://www.eltrade.com)
-* Incotex (http://www.incotex.bg) 
+* Incotex (http://www.incotex.bg)
 * ISL (http://isl.bg)
 
 If you want your device to be supported, please contact us, and we will try our best to help you!
@@ -287,10 +287,10 @@ If you want your device to be supported, please contact us, and we will try our 
 * bg.dt.c.isl - Datecs WP-50, Datecs DP-05, Datecs DP-05B, Datecs DP-05C, Datecs DP-25, Datecs DP-35, Datecs DP-150, Datecs DP-15
 * bg.dt.p.isl - Datecs FP-650, Datecs FP-800, Datecs FP-2000, Datecs FMP-10, Datecs SK1-21F, Datecs SK1-31F
 * bg.dt.x.isl - Datecs DP-25X, Datecs FMP-350X, Datecs FP-700X, Datecs WP-500X, Datecs FMP-55X, Datecs WP-50X, Datecs FP-700X, Datecs DP-150X, Datecs WP-25X, Datecs FP-700XE
-* bg.zk.zfp - Tremol A19Plus, Tremol S21, Tremol M23, Tremol M20, Tremol FP15, Tremol SB, Tremol S25, Tremol FP24 
+* bg.zk.zfp - Tremol A19Plus, Tremol S21, Tremol M23, Tremol M20, Tremol FP15, Tremol SB, Tremol S25, Tremol FP24
 * bg.zk.v2.zfp - Tremol Z-KL-V2, Tremol ZM-KL-V2, Tremol ZS-KL-V2, Tremol FP01-KL V2, Tremol FP05-KL V2, Tremol M-KL-V2, Tremol S-KL-V2, Tremol FP15 KL V2, Tremol FP03-KL V2, Tremol FP07-KL V2, Tremol FP01, Tremol FP21
 * bg.ed.isl - Eltrade A1 KL, Eltrade A1 KL, Eltrade A3 KL, Eltrade B1 KL, Eltrade PRP 250F KL, Eltrade A6 KL, Eltrade B3 KL, EPSON TM - T810F KL модел 01, EPSON TM - T81F KL модел 03, ELTRADE PRP 250F KL
-* bg.dy.isl - Daisy Compact S, Daisy Compact M, Daisy eXpert SX 01, Daisy eXpert SX, Daisy Compact M 02, Daisy Compact S 01, Daisy Perfect M 01, Daisy MICRO C 01, Daisy Compact M 01, Daisy eXpert 01, Daisy Perfect S 01, Daisy FX 1300, Daisy FX 1200C, Daisy Perfect SA, Daisy FX 21 01 
+* bg.dy.isl - Daisy Compact S, Daisy Compact M, Daisy eXpert SX 01, Daisy eXpert SX, Daisy Compact M 02, Daisy Compact S 01, Daisy Perfect M 01, Daisy MICRO C 01, Daisy Compact M 01, Daisy eXpert 01, Daisy Perfect S 01, Daisy FX 1300, Daisy FX 1200C, Daisy Perfect SA, Daisy FX 21 01
 * bg.in.isl - Incotex 133 KL-Q, Incotex 181 KL-Q, Incotex 777, Incotex 300SM KL-Q, Incotex 300S KL-Q
 * bg.is.icp - ISL5011S-KL
 
@@ -311,20 +311,20 @@ This is a list of default credentials we use in the library, when there is no ex
 # Source Code
 To compile and run the source code, you will need .Net 7.0 SDK installed.
 
-To build the binaries into Published folder and .zip files into Output folder, just write this line in the console, while you are in the ErpNet.FP folder:
+To build the binaries into Published folder and .zip files into Output folder, just write this line in the console, while you are in the nuxFP folder:
 ```bash
 dotnet msbuild output.xml
 ```
-If you are under Windows, you can install [Wix toolset - Wix 3.11](https://wixtoolset.org/releases/) and you will be able to build ErpNet.FP.Setup and to get the Windows MSI setup file into the Output folder.
+If you are under Windows, you can install [Wix toolset - Wix 3.11](https://wixtoolset.org/releases/) and you will be able to build nuxFP.Setup and to get the Windows MSI setup file into the Output folder.
 
-As IDE for Windows, you can use Visual Studio 2022. 
+As IDE for Windows, you can use Visual Studio 2022.
 For macOS, you can use Visual Studio for Mac 8.3.
 For Linux, or as alternative for Windows and macOs, you can use Visual Studio Code.
 
 # Support
-ErpNet.FP is free, open and works great. Most people use ErpNet.FP without any kind of support.
+nuxFP is free, open and works great. Most people use nuxFP without any kind of support.
 
-Free support for ErpNet.FP is available on the https://www.facebook.com/groups/BgBusinessDev/. This group is monitored by a community of experts, including the core ErpNet.FP development team, who are able to resolve your problems with ErpNet.FP that you are likely to have. The main language of this group is Bulgarian, but you can post your questions in English.
+Free support for nuxFP is available on the https://www.facebook.com/groups/BgBusinessDev/. This group is monitored by a community of experts, including the core nuxFP development team, who are able to resolve your problems with nuxFP that you are likely to have. The main language of this group is Bulgarian, but you can post your questions in English.
 
 # License
 "BSD Zero Clause License", see [LICENSE.txt]
@@ -342,5 +342,5 @@ See our [Contributing] document and our [Code of Conduct] document, to learn how
 [osx-x64.zip - macOS]: <https://github.com/erpnet/ErpNet.FP/releases/latest/download/osx-x64.zip>
 [linux-x64.zip - Linux x64]: <https://github.com/erpnet/ErpNet.FP/releases/latest/download/linux-x64.zip>
 [linux-arm.zip - Linux Arm]: <https://github.com/erpnet/ErpNet.FP/releases/latest/download/linux-arm.zip>
-[Installer for Windows 32/64]: <https://github.com/erpnet/ErpNet.FP/releases/latest/download/ErpNet.FP.Setup.msi>
-[download the binaries for ErpNet.FP.Server]: <https://github.com/erpnet/ErpNet.FP/releases/latest>
+[Installer for Windows 32/64]: <https://github.com/erpnet/ErpNet.FP/releases/latest/download/nuxFP.Setup.msi>
+[download the binaries for nuxFP.Server]: <https://github.com/erpnet/ErpNet.FP/releases/latest>

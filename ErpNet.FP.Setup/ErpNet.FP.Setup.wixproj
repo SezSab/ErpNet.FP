@@ -1,6 +1,6 @@
-﻿<Project Sdk="WixToolset.Sdk/4.0.3">
+<Project Sdk="WixToolset.Sdk/4.0.3">
     <PropertyGroup>
-        <OutputName>ErpNet.FP.Setup</OutputName>
+        <OutputName>nuxFP.Setup</OutputName>
         <OutputType>Package</OutputType>
         <OutputPath>..\Output\</OutputPath>
         <Cultures>en-US;bg-BG</Cultures>

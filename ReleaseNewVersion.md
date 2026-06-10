@@ -28,8 +28,8 @@
     Check the `./Output` folder. It should contain:
     * **ZIP archives** for cross-platform releases (`win-x86.zip`, `linux-x64.zip`, `osx-x64.zip`, etc.).
     * **MSI Installers** located in language-specific subfolders:
-        * `./Output/en-US/ErpNet.FP.Setup.msi` (English)
-        * `./Output/bg-BG/ErpNet.FP.Setup.msi` (Bulgarian)
+        * `./Output/en-US/nuxFP.Setup.msi` (English)
+        * `./Output/bg-BG/nuxFP.Setup.msi` (Bulgarian)
 
 5.  **Commit & Push:**
     Inspect the changes (version bumps in `Product.wxs` and `Directory.Build.props` will happen automatically). Commit these changes and push to the server (including the tag).
@@ -46,7 +46,7 @@
 Open [output.xml](output.xml) and update `<Version>` under `/Project/PropertyGroup`.
 
 When you run the build, this version is automatically propagated to:
-* The WiX v4 Package (`ErpNet.FP.Setup\Product.wxs`).
+* The WiX v4 Package (`nuxFP.Setup\Product.wxs`).
 * The .NET Projects (`Directory.Build.props` or project files).
 
 ### Details about `output.xml`
@@ -60,7 +60,7 @@ The `output.xml` is an MSBuild orchestration script that performs the following:
 3.  **Zipping:**
     Compresses the published binaries into `.zip` files in the `./Output` folder.
 4.  **Windows Installer (WiX v4):**
-    Builds the `ErpNet.FP.Setup` project targeting **x86**.
+    Builds the `nuxFP.Setup` project targeting **x86**.
     * *Note:* WiX v4 generates localized installers in subfolders (`Output/en-US/` and `Output/bg-BG/`).
 
 ### Building On Windows (Full Release)
@@ -84,5 +84,5 @@ dotnet msbuild output.xml -t:PrepareForRelease -t:PublishToOutputPath
 If you encounter errors regarding **"Target assets not found"** or **"NETSDK1047"**:
 
 1. Run `dotnet clean` in the root directory.
-2. Manually delete `obj` and `bin` folders in `ErpNet.FP.Server` and `ErpNet.FP.Core`.
+2. Manually delete `obj` and `bin` folders in `nuxFP.Server` and `nuxFP.Core`.
 3. Run the build command again.

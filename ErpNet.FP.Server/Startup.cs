@@ -20,17 +20,31 @@
 
     public class Startup
     {
+        private const string ConfigurationSectionName = "nuxFP";
+        private const string LegacyConfigurationSectionName = "ErpNet.FP";
+
         private readonly WebAccessOptions _webAccessOptions;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
 
-            _webAccessOptions = Configuration.GetSection("ErpNet.FP:WebAccess").Get<WebAccessOptions>()
+            _webAccessOptions = GetServiceConfigurationSection().GetSection("WebAccess").Get<WebAccessOptions>()
                 ?? new WebAccessOptions();
         }
 
         public IConfiguration Configuration { get; }
+
+        private IConfigurationSection GetServiceConfigurationSection()
+        {
+            var section = Configuration.GetSection(ConfigurationSectionName);
+            if (section.Exists())
+            {
+                return section;
+            }
+
+            return Configuration.GetSection(LegacyConfigurationSectionName);
+        }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -89,7 +103,10 @@
         {
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
 
-            services.ConfigureWritable<ServiceOptions>(Configuration.GetSection("ErpNet.FP"));
+            services.ConfigureWritable<ServiceOptions>(
+                Configuration,
+                ConfigurationSectionName,
+                LegacyConfigurationSectionName);
 
             services.AddSingleton<IServiceController, ServiceSingleton>();
 

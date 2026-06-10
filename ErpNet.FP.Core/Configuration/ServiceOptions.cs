@@ -127,20 +127,26 @@
         public void RemapPaymentTypes(string serialNumber, Dictionary<PaymentType, string> map) 
         {
             _rwLock.EnterReadLock();
-            if (PrintersProperties.TryGetValue(serialNumber, out PrinterProperties? printerProperties))
+            try
             {
-                foreach (PaymentType pmt in (PaymentType[])Enum.GetValues(typeof(PaymentType)))
+                if (PrintersProperties.TryGetValue(serialNumber, out PrinterProperties? printerProperties))
                 {
-                    var serializedKey = JsonConvert.SerializeObject(pmt).Trim('"');
-                    if (printerProperties.PaymentTypeMappings.TryGetValue(serializedKey, out var newValue))
+                    foreach (PaymentType pmt in (PaymentType[])Enum.GetValues(typeof(PaymentType)))
                     {
-                        if (!string.IsNullOrEmpty(newValue)) {
-                            map[pmt] = newValue;
+                        var serializedKey = JsonConvert.SerializeObject(pmt).Trim('"');
+                        if (printerProperties.PaymentTypeMappings.TryGetValue(serializedKey, out var newValue))
+                        {
+                            if (!string.IsNullOrEmpty(newValue)) {
+                                map[pmt] = newValue;
+                            }
                         }
                     }
                 }
             }
-            _rwLock.ExitReadLock();
+            finally
+            {
+                _rwLock.ExitReadLock();
+            }
         }
 
         /// <summary>
@@ -150,7 +156,7 @@
         /// <param name="info">The device info object to reconfigure.</param>
         public void ReconfigurePrinterConstants(DeviceInfo info)
         {
-            _rwLock.EnterReadLock();
+            _rwLock.EnterWriteLock();
             try
             {
                 if (!PrintersProperties.TryGetValue(info.SerialNumber, out PrinterProperties? printerProperties))
@@ -187,7 +193,7 @@
             }
             finally
             {
-                _rwLock.ExitReadLock();
+                _rwLock.ExitWriteLock();
             }            
         }
 
@@ -198,7 +204,7 @@
         /// <param name="info">The device info object to reconfigure.</param>
         public void ReconfigurePrinterOptions(DeviceInfo info)
         {
-            _rwLock.EnterReadLock();
+            _rwLock.EnterWriteLock();
             try
             {
                 if (!PrintersProperties.TryGetValue(info.SerialNumber, out PrinterProperties? printerProperties))
@@ -238,7 +244,7 @@
             }
             finally
             {
-                _rwLock.ExitReadLock();
+                _rwLock.ExitWriteLock();
             }
         }
     }

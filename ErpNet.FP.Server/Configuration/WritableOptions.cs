@@ -84,5 +84,30 @@
                 return new WritableOptions<T>(environment, options, section.Key, file);
             });
         }
+
+        public static void ConfigureWritable<T>(
+            this IServiceCollection services,
+            IConfiguration configuration,
+            string sectionName,
+            string fallbackSectionName,
+            string file = "appsettings.json") where T : class, new()
+        {
+            var section = configuration.GetSection(sectionName);
+            if (section.Exists())
+            {
+                services.Configure<T>(section);
+            }
+            else
+            {
+                services.Configure<T>(configuration.GetSection(fallbackSectionName));
+            }
+
+            services.AddTransient<IWritableOptions<T>>(provider =>
+            {
+                var environment = provider.GetRequiredService<IWebHostEnvironment>();
+                var options = provider.GetRequiredService<IOptionsMonitor<T>>();
+                return new WritableOptions<T>(environment, options, sectionName, file);
+            });
+        }
     }
 }

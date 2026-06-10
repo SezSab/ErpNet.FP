@@ -9,10 +9,10 @@
     <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
     <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
     <OutputPath>$(SolutionDir)Published/Build</OutputPath>
-    <Company>ErpNet</Company>
-    <Authors>ErpNet and Contributors</Authors>
+    <Company>nuxFP</Company>
+    <Authors>nuxFP and Contributors</Authors>
     <PackageLicenseFile>$(SolutionDir)LICENSE.txt</PackageLicenseFile>
-    <Copyright>(c) ErpNet and Contributors</Copyright>
+    <Copyright>(c) nuxFP and Contributors</Copyright>
     <AssemblyVersion>1.1.0.1680</AssemblyVersion>
     <FileVersion>1.1.0.1680</FileVersion>
     <Version>1.1.0.1682</Version>
