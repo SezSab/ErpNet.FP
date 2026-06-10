@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.2.11415.280 d18.0
@@ -20,11 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReleaseNewVersion.md = ReleaseNewVersion.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErpNet.FP.Core", "ErpNet.FP.Core\ErpNet.FP.Core.csproj", "{E6273892-F5B1-485E-A4BE-3934214B40BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nuxFP.Core", "ErpNet.FP.Core\ErpNet.FP.Core.csproj", "{E6273892-F5B1-485E-A4BE-3934214B40BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErpNet.FP.Server", "ErpNet.FP.Server\ErpNet.FP.Server.csproj", "{C88083E2-1650-4B19-9E3A-BE19E7DD51F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nuxFP.Server", "ErpNet.FP.Server\ErpNet.FP.Server.csproj", "{C88083E2-1650-4B19-9E3A-BE19E7DD51F4}"
 EndProject
-Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "ErpNet.FP.Setup", "ErpNet.FP.Setup\ErpNet.FP.Setup.wixproj", "{0896CAF7-FFFC-9648-4573-A505551E0EDF}"
+Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "nuxFP.Setup", "ErpNet.FP.Setup\ErpNet.FP.Setup.wixproj", "{0896CAF7-FFFC-9648-4573-A505551E0EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

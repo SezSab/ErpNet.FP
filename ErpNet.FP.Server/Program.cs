@@ -19,6 +19,7 @@
         // Serilog appends yyyyMMdd before file extension when rolling is set to daily
         private const string DebugLogFilePattern = "debug*.log";
         private const string AppSettingsFileName = "appsettings.json";
+        private const string ConfigurationSectionName = "nuxFP";
 
         public static IHostBuilder CreateHostBuilder(string pathToContentRoot, string[] args) =>
             Host.CreateDefaultBuilder(args)
@@ -59,7 +60,7 @@
 
             if (!File.Exists(appSettingsJsonFilePath))
             {
-                var defaultAppSettings = @"{ ""ErpNet.FP"": {""AutoDetect"": true, ""Printers"": { } }, ""Kestrel"": { ""EndPoints"": { ""Http"": { ""Url"": ""http://0.0.0.0:8001"" } } } }";
+                var defaultAppSettings = $@"{{ ""{ConfigurationSectionName}"": {{""AutoDetect"": true, ""Printers"": {{ }} }}, ""Kestrel"": {{ ""EndPoints"": {{ ""Http"": {{ ""Url"": ""http://0.0.0.0:8001"" }} }} }} }}";
                 File.WriteAllText(appSettingsJsonFilePath, defaultAppSettings);
             }
         }

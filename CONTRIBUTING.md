@@ -1,22 +1,22 @@
-# Contributing to ErpNet.FP
+# Contributing to nuxFP
 
-Thanks for your interest in ErpNet.FP. 
+Thanks for your interest in nuxFP.
 
 ## Getting Started
 
-ErpNet.FP [open issues are here](https://github.com/erpnet/ErpNet.FP/issues). 
-In time, we'll tag issues that would make a good first pull request for new contributors. 
-An easy way to get started helping the project is to *file an issue*. 
-You can do that on the ErpNet.FP issues page by clicking on the green button at the right. 
-Issues can include bugs to fix, features to add, or documentation that looks outdated. 
+nuxFP [open issues are here](https://github.com/erpnet/ErpNet.FP/issues).
+In time, we'll tag issues that would make a good first pull request for new contributors.
+An easy way to get started helping the project is to *file an issue*.
+You can do that on the nuxFP issues page by clicking on the green button at the right.
+Issues can include bugs to fix, features to add, or documentation that looks outdated.
 
 For some tips on contributing to open source, this [post is helpful](http://blog.smartbear.com/programming/14-ways-to-contribute-to-open-source-without-being-a-programming-genius-or-a-rock-star/).
 
 ## Contributions
 
-ErpNet.FP welcomes contributions from everyone.
+nuxFP welcomes contributions from everyone.
 
-Contributions to ErpNet.FP should be made in the form of GitHub pull requests. Each pull request will
+Contributions to nuxFP should be made in the form of GitHub pull requests. Each pull request will
 be reviewed by a core contributor (someone with permission to land patches) and either landed in the
 main tree or given feedback for changes that would be required.
 
@@ -27,7 +27,7 @@ main tree or given feedback for changes that would be required.
   master you may be asked to rebase your changes.
 
 - Commits should be as small as possible, while ensuring that each commit is
-  correct independently (i.e., each commit should compile and pass tests). 
+  correct independently (i.e., each commit should compile and pass tests).
 
 - Don't put submodule updates in your pull request unless they are to landed
   commits.
@@ -36,7 +36,7 @@ main tree or given feedback for changes that would be required.
   it, you can @-reply a reviewer asking for a review in the pull request or a
   comment.
 
-- Add tests relevant to the fixed bug or new feature.  
+- Add tests relevant to the fixed bug or new feature.
 
 ## Conduct
 

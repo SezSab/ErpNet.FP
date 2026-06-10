@@ -1,5 +1,5 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-  <Package Name="ErpNet.FP - Fiscal Print Server" Language="1033" Version="1.1.0.1682" Manufacturer="Erp.Net And Contributors" UpgradeCode="05E58513-A8D9-45BF-A280-D47CCB696623" InstallerVersion="200">
+  <Package Name="nuxFP - Fiscal Print Server" Language="1033" Version="1.1.0.1682" Manufacturer="nuxFP and Contributors" UpgradeCode="05E58513-A8D9-45BF-A280-D47CCB696623" InstallerVersion="200">
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes" />
     <Property Id="MSIFASTINSTALL" Value="7" />
     <MediaTemplate EmbedCab="yes" />
@@ -12,12 +12,12 @@
     <CustomAction Id="LaunchApplication" Directory="INSTALLFOLDER" ExeCommand="explorer.exe http://localhost:8001" Execute="immediate" Impersonate="yes" Return="asyncNoWait" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Show Admin (http://localhost:8001)" />
     <WixVariable Id="WixUILicenseRtf" Value="LICENSE.rtf" />
-    <Feature Id="ProductFeature" Title="ErpNet.FP.Setup" Level="1">
+    <Feature Id="ProductFeature" Title="nuxFP.Setup" Level="1">
       <ComponentGroupRef Id="ProductFilesComponentGroup" />
       <ComponentGroupRef Id="ProductComponents" />
     </Feature>
     <StandardDirectory Id="ProgramFilesFolder">
-      <Directory Id="INSTALLFOLDER" Name="ErpNet.FP" />
+      <Directory Id="INSTALLFOLDER" Name="nuxFP" />
     </StandardDirectory>
     <StandardDirectory Id="ProgramMenuFolder" />
     <StandardDirectory Id="DesktopFolder" />
@@ -26,11 +26,11 @@
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component>
         <File Id="favicon.ico" Source="$(var.PublishedDir)\wwwroot\favicon.ico" />
-        <util:InternetShortcut Id="ShortcutAtProgramMenuFolder" Directory="ProgramMenuFolder" Name="ErpNet.FP Admin Page" Target="http://localhost:8001/" IconFile="file://[#favicon.ico]" />
-        <File Name="ErpNet.FP.Server.exe" Source="$(var.PublishedDir)\ErpNet.FP.Server.exe" KeyPath="yes" />
-        <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Name="ErpNetFPServer" DisplayName="ErpNet.FP - Fiscal Print Server" Description="Http server for printing to fiscal printers through simple JSON Api." Start="auto" Account="LocalSystem" ErrorControl="normal" />
-        <ServiceControl Id="StartService" Name="ErpNetFPServer" Stop="both" Start="install" Remove="uninstall" Wait="yes" />
-        <util:ServiceConfig ServiceName="ErpNetFPServer" FirstFailureActionType="restart" SecondFailureActionType="restart" ThirdFailureActionType="restart" ResetPeriodInDays="1" RestartServiceDelayInSeconds="60" />
+        <util:InternetShortcut Id="ShortcutAtProgramMenuFolder" Directory="ProgramMenuFolder" Name="nuxFP Admin Page" Target="http://localhost:8001/" IconFile="file://[#favicon.ico]" />
+        <File Name="nuxFP.Server.exe" Source="$(var.PublishedDir)\nuxFP.Server.exe" KeyPath="yes" />
+        <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Name="nuxFPServer" DisplayName="nuxFP - Fiscal Print Server" Description="Http server for printing to fiscal printers through simple JSON Api." Start="auto" Account="LocalSystem" ErrorControl="normal" />
+        <ServiceControl Id="StartService" Name="nuxFPServer" Stop="both" Start="install" Remove="uninstall" Wait="yes" />
+        <util:ServiceConfig ServiceName="nuxFPServer" FirstFailureActionType="restart" SecondFailureActionType="restart" ThirdFailureActionType="restart" ResetPeriodInDays="1" RestartServiceDelayInSeconds="60" />
       </Component>
     </ComponentGroup>
   </Fragment>

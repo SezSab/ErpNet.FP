@@ -1,11 +1,11 @@
 # Config File
-The config file configures the way the ErpNet.FP print server works.
-The config file is called "appsettings.json" and is located in the same directory as ErpNet.FP.Server.
+The config file configures the way the nuxFP print server works.
+The config file is called "appsettings.json" and is located in the same directory as nuxFP.Server.
 
 # The JSON structure of the config
 The config has the following root elements
 * **"Logging"** - configures the logging level of server
-* **"ErpNet.FP"** - configures the specific options of the print server
+* **"nuxFP"** - configures the specific options of the print server
 * **"Kestrel"** - configures the options of the integrated Kestrel web server
 
 # Example appsettings.json
@@ -17,7 +17,7 @@ The config has the following root elements
       "Default": "Information"
     }
   },
-  "ErpNet.FP": {
+  "nuxFP": {
     "AutoDetect": false,
     "Printers": {
       "dt279013": {
@@ -75,7 +75,7 @@ The loggingg section configures the logging level. The allowed logging levels ar
 * **Debug** - Logs that are used for interactive investigation during development. These logs should primarily contain information useful for debugging and have no long-term value.
 * **Trace** - Logs that contain the most detailed messages. These messages may contain sensitive application data. These messages are disabled by default and should never be enabled in a production environment.
 
-# "ErpNet.FP" Section
+# "nuxFP" Section
 This section can contain the following configuration options
 * **AutoDetect** - specifies whether the print server should try to auto-detect the available printers at startup
 * **Printers** - contains a list of configured printers. 
